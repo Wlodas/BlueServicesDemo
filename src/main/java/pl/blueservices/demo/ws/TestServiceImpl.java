@@ -5,7 +5,7 @@ import javax.jws.WebService;
 @WebService(
 	endpointInterface = "pl.blueservices.demo.ws.TestService",
 	targetNamespace = "blueservices.pl",
-	serviceName = "Test",
+	serviceName = "TestService",
 	portName = "TestPort"
 )
 public class TestServiceImpl implements TestService {

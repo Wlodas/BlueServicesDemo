@@ -15,7 +15,7 @@ public class TestClient {
 	
 	public static void main(String[] args) throws MalformedURLException {
 		URL url = new URL("http://localhost:8888/ws/test?wsdl");
-		QName qname = new QName("blueservices.pl", "Test");
+		QName qname = new QName("blueservices.pl", "TestService");
 		Service service = Service.create(url, qname);
 		TestService port = service.getPort(TestService.class);
 		
