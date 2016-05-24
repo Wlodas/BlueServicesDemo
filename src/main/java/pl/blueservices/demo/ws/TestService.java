@@ -27,7 +27,6 @@ public interface TestService {
 		@Value
 		@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 		@RequiredArgsConstructor
-		@XmlRootElement
 		@XmlAccessorType(XmlAccessType.FIELD)
 		public static final class Address {
 			private String street;
