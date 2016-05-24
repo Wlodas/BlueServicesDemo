@@ -17,12 +17,12 @@ public class TestClient {
 		URL url = new URL("http://localhost:8888/ws/test?wsdl");
 		QName qname = new QName("blueservices.pl", "Test");
 		Service service = Service.create(url, qname);
-		TestService hello = service.getPort(TestService.class);
+		TestService port = service.getPort(TestService.class);
 		
 		Person person = new Person("ggg", "hhh", LocalDate.of(2000, Month.JANUARY, 01),
 			new Address("sss", "zzz")
 		);
-		System.out.println(hello.savePerson(person));
+		System.out.println(port.savePerson(person));
 	}
 	
 }
