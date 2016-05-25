@@ -2,16 +2,18 @@ package pl.blueservices.demo.ws;
 
 import java.time.LocalDate;
 
-import javax.jws.WebMethod;
-import javax.jws.WebService;
+import javax.jws.*;
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.bind.annotation.*;
 
 import lombok.*;
 
 @WebService
+@SOAPBinding(style = Style.RPC)
 public interface TestService {
 	@WebMethod
-	Person savePerson(Person person);
+	Person savePerson(@WebParam(name = "person") Person person);
 	
 	@Value
 	@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
@@ -19,10 +21,17 @@ public interface TestService {
 	@XmlRootElement
 	@XmlAccessorType(XmlAccessType.FIELD)
 	public static final class Person {
+		@XmlElement(required = true)
 		private String firstName;
+		
+		@XmlElement(required = true)
 		private String lastName;
+		
+		@XmlElement(required = true)
 		@XmlSchemaType(name = "date")
 		private LocalDate birthDate;
+		
+		@XmlElement(required = true)
 		private Address address;
 		
 		@Value
@@ -30,7 +39,10 @@ public interface TestService {
 		@RequiredArgsConstructor
 		@XmlAccessorType(XmlAccessType.FIELD)
 		public static final class Address {
+			@XmlElement(required = true)
 			private String street;
+			
+			@XmlElement(required = true)
 			private String zipCode;
 		}
 	}

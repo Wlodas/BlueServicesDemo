@@ -4,7 +4,6 @@ import javax.jws.WebService;
 
 @WebService(
 	endpointInterface = "pl.blueservices.demo.ws.TestService",
-	targetNamespace = "blueservices.pl",
 	serviceName = "TestService",
 	portName = "TestPort"
 )
