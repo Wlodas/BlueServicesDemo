@@ -21,6 +21,7 @@ public interface TestService {
 	public static final class Person {
 		private String firstName;
 		private String lastName;
+		@XmlSchemaType(name = "date")
 		private LocalDate birthDate;
 		private Address address;
 		
